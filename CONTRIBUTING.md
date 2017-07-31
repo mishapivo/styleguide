@@ -1,106 +1,118 @@
-# Contributing
+# Содействие
 
 ## 3.0
-We are now developing the 3rd major version of Styleguide. The only branch type allowed to serve 2.x are hotfixes and master (until we achieve 3.0). Branch develop and feature/ should relate to 3.x development.
 
-After 3.0 we will continue to release patches for 2.x, but no additional features.
+Мы сейчас разрабатываем 3-й основной версии стилистического справочника. Единственный тип ветви разрешили служить 2.x являются исправления и мастер (пока мы не достичь 3.0). Отделение разработки и функция / должны относиться к 3.x развития.
 
-## Git branching model
-This repo branching model is **inspired by Git Flow**. Currently we have these types of branches:
-- master - Latest release, stable
-- develop - Main development, unstable
-- release/ - Release archive
-- feature/ - Specific features development
-- example/ - Helpful examples
-- hotfix/ - Emergency fixes for latest release
+После 3.0 мы продолжим выпускать патчи для 2.x, но никаких дополнительных функций.
 
-[Read the Git Flow reference](http://nvie.com/posts/a-successful-git-branching-model/).  
-This repo uses [Semantic Versioning](http://semver.org/).
+## Гит разветвленности модель
 
-## Creating Modules
+Этот репозиторий ветвление модель **вдохновлена Git Flow** . В настоящее время у нас есть эти типы ветвей:
 
-The good news is that whatever you create in the Styleguide will be treated as a module. This way we are able to add an awesome resource for the community.
+- мастер - Последняя версия, стабильная
+- развиваться - Главное развитие, нестабильная
+- / Релиз - архив релиз
+- Функция / - Особенности развития
+- Пример / - Полезные примеры
+- Исправление / - Экстренные исправления для последней версии
 
-Don't forget to read about ["How modules work"](http://hugeinc.github.io/styleguide/modules.html#how-they-work) and ["Module Structure"](http://hugeinc.github.io/styleguide/modules.html#modules-structure) before you move forward.
+[Прочитайте ссылку Гитого Flow](http://nvie.com/posts/a-successful-git-branching-model/) . 
+Этот репозиторий использует [семантическую Versioning](http://semver.org/) .
 
-###_data.json
-You can define a key-value in this file that will be used in your module.
+## Создание модулей
 
-Examples:
+Хорошая новость заключается в том, что все, что вы создаете в стилистическом справочнике будет рассматриваться как модуль. Таким образом, мы можем добавить удивительный ресурс для сообщества.
 
-```json
-"items": {
-	"people": [
+Не забудьте прочитать о [«Как работают модули»](http://hugeinc.github.io/styleguide/modules.html#how-they-work) и [«Модуль Structure»](http://hugeinc.github.io/styleguide/modules.html#modules-structure) , прежде чем двигаться вперед.
+
+\### _ data.json Вы можете задать ключ-значение в этом файле, который будет использоваться в модуле.
+
+Примеры:
+
+```
+" Пункты " : {
+	 " люди " : [
 		{
-			"name": "John",
-			"age": "32"
+			" Название " : " Джон " ,
+			 " возраст " : " 32 "
 		},
 		{
-			"name": "Kirsten",
-			"age": "28"
+			" Название " : " Кирстен " ,
+			 " возраст " : " 28 "
 		}
 	]
 }
 ```
 
-### Jade
-You can use all the info of _data.json inside the .jade file:
+### нефрит
 
-```html
-table
-	each folk in people
-		tr
-			td=folk.name
-			td=folk.age
+Вы можете использовать всю информацию о _data.json внутри .jade файла:
+
+```
+Таблица
+	каждый фольклорный у людей
+		тр
+			TD = folk.name
+			TD = folk.age
 ```
 
 ### Javascript
-In case you need Javascript for your module, use the key scripts e and add the file path:
 
-```json
-"scripts": ["vendor/foundation.equalizer.js", "pricing-tables.js"]
+В случае, если вам нужен Javascript для вашего модуля, используйте ключевые сценарии е и добавьте путь к файлу:
+
+```
+" Сценарии " : [ " поставщик / foundation.equalizer.js " , " ценообразование-tables.js " ]
 ```
 
-## Changing Structure
+## Изменение структуры
 
-### Dependencies
-- <a href="http://nodejs.org" target="_blank">Node.js</a>
-- <a href="http://harpjs.com" target="_blank">Harp.js</a>
-- <a href="https://www.npmjs.com/package/livereload" target="_blank">Node Livereload</a>
-- <a href="https://www.npmjs.com/package/watch" target="_blank">Node Watch</a>
+### зависимости
 
-### Harp
-Harp is used for both serving files and compiling, such actions are done through the Start.app and Compile.add. The Start.app uses a Node.js file in order to configure Livereload and Harp together.
+- [Node.js](http://nodejs.org/)
+- [Harp.js](http://harpjs.com/)
+- [Узел LiveReload](https://www.npmjs.com/package/livereload)
+- [Узел часы](https://www.npmjs.com/package/watch)
 
-### Scripts
-The source of the Start.app and Compile.app are inside of each app content: Contents/Resources/script
+### арфа
 
-### Node Files
-In the styleguide/structure/_node-files folder you will find the code that:  
+Арфа используется как для обслуживания файлов и компиляции, такие действия осуществляются через Start.app и Compile.add. Start.app использует Node.js файл для настройки LiveReload и Харп вместе.
 
-- Start Harp
-- Start Livereload
-- Writes the current date to styleguide/_data.json file (on start and compile)
-- Concatenate all modules javascript code into one file in styleguide/assets/scripts/styleguide.js
-- Concatenate all modules stylesheet code into one file in styleguide/assets/styles/styleguide.js
+### Сценарии
 
-### Structure CSS
-In the folder styleguide/structure/styles is the stylesheet of the structure (header, sidebar and basic components), without any module specific code.
+Источник Start.app и Compile.app внутри каждый контент приложения: Содержание / Ресурсы / скрипт
 
-### Structure Javascript
-In the folder styleguide/structure/scripts is the javascript of the structure (header, sidebar and basic components), without any module specific code.
+### Узел файлы
 
-### Modules Data
-The styleguide/structure/_includes/modulesData.jade is responsible for collecting all necessary data of all modules into one object that will be used by all structure files.
+В стилистический справочник / Структура / _node-файлов папки вы найдете код, который:
 
-### Pull Request
-In order to do a Pull Request, you should first lint your code with styleguide/structure/_tests/_lint.sh (execute in the command line). Code with lint errors will not be accepted.
+- Начало Арфа
+- Начало LiveReload
+- Записывает текущую дату стилистического справочника файл / _data.json (при запуске и компиляция)
+- Соединить все модули JavaScript кода в один файл в стилистический справочник / активы / скрипты / styleguide.js
+- Соединить все модули кода таблицы стилей в один файл в стилистический справочник / активы / стили / styleguide.js
 
-## Reporting Issues
+### Структура CSS
 
-Please use our <a href="http://github.com/hugeinc/styleguide">Github repository</a> to report issues. All issues must have:
+В папке / стилистическом справочнике структуры / стили являются таблицей стилей структуры (заголовок, боковой панели и основных компонентов), без какого-либо модуля конкретного кода.
 
-- Your operating system (name and version)
-- The browser you are using (name and version)
-- The full copy of any error messages available
-- A full description of how to reproduce the issue you have found
+### Структура Javascript
+
+В папке / стилистическом справочнике структуры / скрипты является Java-структуры (заголовок, боковой панели и основных компонентов), без какого-либо модуля конкретного кода.
+
+### Модули данных
+
+В стилистический справочник / структура / _includes / modulesData.jade отвечает за сбор всех необходимых данных всех модулей в один объект, который будет использоваться всеми файлами структуры.
+
+### Прицепные Запрос
+
+Для того, чтобы сделать Толкай запрос, вы должны сначала нибудь вкусненькое код с стилистический справочник / структура / _tests / _lint.sh (выполнить в командной строке). Код с ошибками линта не будет принят.
+
+## Отчетность вопросы
+
+Пожалуйста , используйте [хранилище GitHub](http://github.com/hugeinc/styleguide) , чтобы сообщить о проблемах. Все вопросы должны быть:
+
+- Ваша операционная система (название и версия)
+- Браузер (название и версия)
+- Полная копия каких-либо сообщений об ошибках,
+- Полное описание того, как воспроизвести проблему вы нашли
