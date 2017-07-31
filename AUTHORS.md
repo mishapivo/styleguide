@@ -1,4 +1,4 @@
-Authors  
+Авторы  
 
 Caio Vaccaro <cavaccaro@hugeinc.com>  
 Felipe Medina <fmedina@hugeinc.com>  
