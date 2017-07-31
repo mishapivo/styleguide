@@ -1,0 +1,35 @@
+<h1>Гид по стилю <a href="https://travis-ci.org/hugeinc/styleguide"><img src="https://camo.githubusercontent.com/ff352d8acea83b3d696ecb5c86d4bfa16ce0f403/68747470733a2f2f7472617669732d63692e6f72672f68756765696e632f7374796c6567756964652e7376673f6272616e63683d6d6173746572" alt="Состояние сборки"></a></h1><h4>Инструмент, который упрощает создание и поддержку стилей.</h4><p>##### v2.0.8</p>
+<p>Для загрузки, как начать работу и подробную документацию см. На <a href="http://hugeinc.github.io/styleguide/">веб-сайте Styleguide</a></p>
+<h4>Благодаря</h4><ul>
+<li><a href="http://nodejs.org/">Node.js</a></li>
+<li><a href="http://harpjs.com/">Harp.js</a></li>
+<li><a href="https://www.npmjs.com/package/livereload">Узел Livereload</a></li>
+<li><a href="https://www.npmjs.com/package/watch">Узел Часы</a></li>
+</ul>
+<h3>Известные вопросы</h3><p>1 - Вы должны разрешить запуск незарегистрированных приложений для использования файла Start.app. Вы можете сделать это в настройках&gt; Безопасность и конфиденциальность</p>
+<p>2 - Скомпилированная версия офлайн имеет меньшую проблему в Chrome. У Chrome есть политика безопасности, запрещающая общение с iframes в файле file: //, поэтому любое взаимодействие, требующее такой связи, будет удалено (в основном меню боковой панели). Это только для автономной скомпилированной версии.</p>
+<p>3 - Если вы пользователь Mac, и после запуска Start.app у вас есть эта ошибка:</p>
+<pre><code>npm ERR! Please try running this command again as root/Administrator.
+</code></pre><p>Возможно, вы установили Node с правами sudo или root. Вам нужно будет установить разрешения для папки .npm со следующей командой:</p>
+<pre><code>sudo chown -R $(whoami) ~/.npm
+sudo chown -R $(whoami) /usr/local/lib/node_modules
+</code></pre><p>После этого попробуйте запустить Start.app еще раз.</p>
+<p>4 - Если у вас установлен XCode, но вы не согласны с лицензией, вы получите эту ошибку:</p>
+<pre><code>Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo.
+</code></pre><p>Откройте XCode и примите лицензию, затем повторите попытку запуска Start.app.</p>
+<p>5 - Если вы <strong>получили</strong> ошибку <strong>404 - Нет данных</strong> , у вас может возникнуть конфликт портов, есть два способа изменить номер порта (по умолчанию - <strong>9241</strong> ):</p>
+<ul>
+<li><p>Измените переменную PORT внутри styleguide / structure / _node-files / watch.js</p>
+</li>
+<li><p>Установите переменную среды (PORT или STYLEGUIDE_PORT):</p>
+<p>Если вы запускаете Styleguide вручную, на последнем шаге вы можете сделать следующее:</p>
+<pre><code>PORT=7000 node watch.js
+</code></pre><p>или</p>
+<pre><code>STYLEGUIDE_PORT=7000 node watch.js
+</code></pre><p>Start.app является автономным, и по соображениям безопасности он не имеет доступа к внешним переменным. Если вы хотите изменить порт для Start.app, рекомендуется изменить файл watch.js. Вы можете, если хотите, добавить переменную в свой .bashrc-файл, и она будет доступна для Start.app:</p>
+<pre><code>touch ~/.bashrc
+echo &#39;export PORT=1234&#39; &gt;&gt; ~/.bashrc
+</code></pre><p>или</p>
+<pre><code>echo &#39;export STYLEGUIDE_PORT=1234&#39; &gt;&gt; ~/.bashrc
+</code></pre></li>
+</ul>
