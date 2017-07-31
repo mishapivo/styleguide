@@ -1,61 +1,74 @@
-# Styleguide [![Build Status](https://travis-ci.org/hugeinc/styleguide.svg?branch=master)](https://travis-ci.org/hugeinc/styleguide)
-#### A tool to make creating and maintaining styleguides easy.
-#####v2.0.8
+# Гид по стилю [![Состояние сборки](https://camo.githubusercontent.com/ff352d8acea83b3d696ecb5c86d4bfa16ce0f403/68747470733a2f2f7472617669732d63692e6f72672f68756765696e632f7374796c6567756964652e7376673f6272616e63683d6d6173746572)](https://travis-ci.org/hugeinc/styleguide)
 
-For downloads, how to get started and detailed documentation please refer to the [Styleguide Website](http://hugeinc.github.io/styleguide/)
+#### Инструмент, который упрощает создание и поддержку стилей.
 
-#### Thanks to
-- [Node.js](http://nodejs.org)
-- [Harp.js](http://harpjs.com)
-- [Node Livereload](https://www.npmjs.com/package/livereload)
-- [Node Watch](https://www.npmjs.com/package/watch)
+\##### v2.0.8
 
-### Known issues
-1 - You should allow unregistered applications to run in order to use the Start.app file. You can do so in Settings > Security & Privacy
+Для загрузки, как начать работу и подробную документацию см. На [веб-сайте Styleguide](http://hugeinc.github.io/styleguide/)
 
-2 - The compiled offline version have a smaller issue on Chrome. Chrome have a security policy of not allowing communication with iframes under file:// protocol, so any interaction that needs such communication will be removed (basically the sidebar menu). This is only for the offline compiled version.
+#### Благодаря
 
-3 - If you are a Mac user and after running the Start.app you have this error:
+- [Node.js](http://nodejs.org/)
+- [Harp.js](http://harpjs.com/)
+- [Узел Livereload](https://www.npmjs.com/package/livereload)
+- [Узел Часы](https://www.npmjs.com/package/watch)
+
+### Известные вопросы
+
+1 - Вы должны разрешить запуск незарегистрированных приложений для использования файла Start.app. Вы можете сделать это в настройках> Безопасность и конфиденциальность
+
+2 - Скомпилированная версия офлайн имеет меньшую проблему в Chrome. У Chrome есть политика безопасности, запрещающая общение с iframes в файле file: //, поэтому любое взаимодействие, требующее такой связи, будет удалено (в основном меню боковой панели). Это только для автономной скомпилированной версии.
+
+3 - Если вы пользователь Mac, и после запуска Start.app у вас есть эта ошибка:
 
 ```
 npm ERR! Please try running this command again as root/Administrator.
 ```
-You have probably installed Node with sudo or root permission. You will need to fix permissions to the .npm folder with the following command:
+
+Возможно, вы установили Node с правами sudo или root. Вам нужно будет установить разрешения для папки .npm со следующей командой:
 
 ```
 sudo chown -R $(whoami) ~/.npm
 sudo chown -R $(whoami) /usr/local/lib/node_modules
 ```
 
-After that, try running the Start.app again.
+После этого попробуйте запустить Start.app еще раз.
 
-4 - If you have XCode installed but have not agreed with the License you will get this error:
+4 - Если у вас установлен XCode, но вы не согласны с лицензией, вы получите эту ошибку:
+
 ```
 Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo.
 ```
-Open XCode and accept the license, then try running Start.app again.
 
-5 - If you get a **404 - No data received** error, you might have a port conflict, there are two ways you can change the port number (default to **9241**):
-- Change the PORT variable inside styleguide/structure/_node-files/watch.js
-- Set an environment variable (PORT or STYLEGUIDE_PORT):
+Откройте XCode и примите лицензию, затем повторите попытку запуска Start.app.
 
-    If you are running the Styleguide manually, in the last step you might do:
+5 - Если вы **получили** ошибку **404 - Нет данных** , у вас может возникнуть конфликт портов, есть два способа изменить номер порта (по умолчанию - **9241** ):
 
-    ```
-    PORT=7000 node watch.js
-    ```
-    or
-    ```
-    STYLEGUIDE_PORT=7000 node watch.js
-    ```
-    The Start.app is self contained, and for security reasons it does not have access to external variables.
-    If you want to change the port for the Start.app it is recommended to change the watch.js file.
-    You can, if you want, add a variable to your .bashrc file and it will be available for the Start.app:
-    ```
-    touch ~/.bashrc
-    echo 'export PORT=1234' >> ~/.bashrc
-    ```
-    or
-    ```
-    echo 'export STYLEGUIDE_PORT=1234' >> ~/.bashrc
-    ```
+- Измените переменную PORT внутри styleguide / structure / _node-files / watch.js
+
+- Установите переменную среды (PORT или STYLEGUIDE_PORT):
+
+  Если вы запускаете Styleguide вручную, на последнем шаге вы можете сделать следующее:
+
+  ```
+  PORT=7000 node watch.js
+  ```
+
+  или
+
+  ```
+  STYLEGUIDE_PORT=7000 node watch.js
+  ```
+
+  Start.app является автономным, и по соображениям безопасности он не имеет доступа к внешним переменным. Если вы хотите изменить порт для Start.app, рекомендуется изменить файл watch.js. Вы можете, если хотите, добавить переменную в свой .bashrc-файл, и она будет доступна для Start.app:
+
+  ```
+  touch ~/.bashrc
+  echo 'export PORT=1234' >> ~/.bashrc
+  ```
+
+  или
+
+  ```
+  echo 'export STYLEGUIDE_PORT=1234' >> ~/.bashrc
+  ```
